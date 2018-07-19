@@ -15,10 +15,20 @@ class LandmarksController < ApplicationController
   end
 
   post '/landmarks' do
-    # binding.pry
     @landmark = Landmark.create(params[:landmark])
 
     redirect to :"/landmarks/#{@landmark.id}"
+  end
+
+  get '/landmarks/:id/edit' do
+    @landmark = Landmark.all.find(params[:id])
+    erb :'landmarks/edit'
+  end
+
+  patch '/landmarks/:id' do
+    landmark = Landmark.find(params[:id])
+    landmark.update(params[:landmark])
+    redirect to :"/landmarks/#{landmark.id}"
   end
 
   get '/landmarks/:id' do
