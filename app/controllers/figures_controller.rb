@@ -50,18 +50,21 @@ class FiguresController < ApplicationController
 
     erb :'/figures/edit'
   end
-
+# ----------------------------------------
   get '/figures/:id' do
-
+# binding.pry
     @figure = Figure.find(params[:id])
 
     erb :'/figures/show'
   end
-
-  patch "/figures" do
-
-    @figure = Figure.create(params[:figure])
+# ______________________________
+  patch "/figures/:id" do
+    # binding.pry
+    @figure = Figure.find(params[:id])
 # binding.pry
+
+  @figure.update(params[:figure])
+  @figure.save
     if params[:figure][:title_ids] != nil
     params[:figure][:title_ids].each do |title|
       FigureTitle.find_or_create_by(figure_id: @figure.id, title_id: title)
@@ -84,7 +87,7 @@ class FiguresController < ApplicationController
     end
 
     @figure.save
-
     redirect to :"/figures/#{@figure.id}"
   end
+  # ____________________________________________________
 end
