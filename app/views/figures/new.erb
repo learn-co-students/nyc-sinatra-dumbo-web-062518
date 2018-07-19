@@ -1,0 +1,40 @@
+<form method="post" action="/figures">
+  <label for="name">Name:</label>
+  <input type="text" name="landmark[name]" id="landmark_name"/>
+  <label for="year"><br/>
+    <h3>Titles:
+    </h3>
+    <p>
+      <label>
+        <input type="checkbox" name="title1" id="title1"/>
+        Title1<br/>
+      </label>
+      <label>
+        <input type="checkbox" name="title2" id="title2"/>
+        Title2</label>
+
+      <br/>
+      <label>Create new title:
+        <input type="text" name="title[name]" id="Create New Title"/></label>
+    </p>
+    <h3>Landmarks:</h3>
+    <p>
+      <label>
+        <input type="checkbox" name="landmark1" id="landmark1"/>
+        Title1<br/>
+      </label>
+      <label>
+        <input type="checkbox" name="landmark2" id="landmark2"/>
+        Title2</label>
+
+      <br/>
+      <label>Create new landmark:
+        <input type="text" name="landmark[name]" id="Create New Landmark"/></label>
+      Year:
+    </label>
+    <input type="text" name="landmark[year_completed]" id="landmark_year_completed"/>
+  </p>
+  <p>
+    <input id="submit" type="submit" value="Create New Figure"/>
+  </p>
+</form>
